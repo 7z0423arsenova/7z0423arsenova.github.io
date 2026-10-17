@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arsenova</title>
+  <meta name="description" content="Arsenova 的个人网站：系统编程、Linux 内核与数据结构。">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Arsenova">
+  <meta property="og:description" content="系统编程、Linux 内核与数据结构。">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // 在首屏渲染前应用已保存的主题，避免闪烁
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="首页">
+      <span class="brand-mark" aria-hidden="true">a/</span>arsenova
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#about">关于</a>
+      <a href="#projects">项目</a>
+      <a href="#notes">笔记</a>
+      <a href="#contact">联系</a>
+      <button class="theme-toggle" type="button" aria-label="切换深浅色">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow"><span class="prompt">$</span> whoami</p>
+      <h1>你好，我是 Arsenova。</h1>
+      <p class="lede">
+        写 C 和 C++，喜欢待在离硬件近一点的地方：
+        Linux 调度器、内核数据结构，以及那些“古法传承”的经典算法。
+      </p>
+      <ul class="tags" aria-label="关注方向">
+        <li>Linux Kernel</li>
+        <li>sched_ext</li>
+        <li>C++20</li>
+        <li>数据结构</li>
+      </ul>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title"><span>01</span>关于</h2>
+      <div class="prose">
+        <p>
+          <!-- TODO: 换成你自己的介绍 -->
+          我对操作系统怎样“真正地”工作很好奇，最近在读调度器源码，
+          也在用现代 C++ 重写一些内核里常见的数据结构，弄明白它们为什么长成那样。
+        </p>
+        <p>
+          这个网站用来放我的项目和学习笔记。它是一个纯静态页面，没有框架，也没有追踪脚本。
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title"><span>02</span>项目</h2>
+      <ul class="cards">
+        <li class="card">
+          <a class="card-link" href="https://github.com/7z0423arsenova/intrusive-rbtree">
+            <div class="card-head">
+              <h3>intrusive-rbtree</h3>
+              <span class="lang"><i style="--c:#f34b7d"></i>C++</span>
+            </div>
+            <p>
+              侵入式红黑树。参考 Linux 的 <code>rb_root_cached</code>，
+              用 C++20 concepts 和 CRTP 代替 <code>container_of</code> 宏，
+              算法部分直译自《算法导论》伪代码。
+            </p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li class="card">
+          <a class="card-link" href="https://github.com/7z0423arsenova/scx">
+            <div class="card-head">
+              <h3>scx</h3>
+              <span class="lang"><i style="--c:#555555"></i>C</span>
+            </div>
+            <p>
+              <code>sched_ext</code> 调度器与工具的 fork，
+              用来阅读和实验基于 BPF 的可扩展 Linux 调度器。
+            </p>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+      <p class="more"><a href="https://github.com/7z0423arsenova">在 GitHub 上查看全部 →</a></p>
+    </section>
+
+    <section id="notes" class="section">
+      <h2 class="section-title"><span>03</span>笔记</h2>
+      <!-- TODO: 写了文章后把链接加到这里 -->
+      <ul class="notes">
+        <li>
+          <time datetime="2026-10">2026.10</time>
+          <span>红黑树为什么需要缓存最左节点</span>
+          <em class="soon">即将发布</em>
+        </li>
+        <li>
+          <time datetime="2026-10">2026.10</time>
+          <span>sched_ext 初读：一个 BPF 调度器的生命周期</span>
+          <em class="soon">即将发布</em>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title"><span>04</span>联系</h2>
+      <p class="prose">欢迎交流内核、调度和数据结构相关的话题。</p>
+      <ul class="links">
+        <li><a href="https://github.com/7z0423arsenova">GitHub<span>@7z0423arsenova</span></a></li>
+        <!-- TODO: 填入真实邮箱后取消注释
+        <li><a href="mailto:hi@arsenova.tech">Email<span>hi@arsenova.tech</span></a></li>
+        -->
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year">2026</span> Arsenova</span>
+    <span class="muted">手写 HTML · 托管于 GitHub Pages</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelector(".theme-toggle").addEventListener("click", function () {
+      var root = document.documentElement;
+      var current = root.dataset.theme ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var next = current === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  </script>
+</body>
+</html>
